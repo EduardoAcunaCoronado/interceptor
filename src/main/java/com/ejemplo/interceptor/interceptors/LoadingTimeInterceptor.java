@@ -9,7 +9,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
+import tools.jackson.databind.ObjectMapper;
 
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 @Component("timeInterceptor")
@@ -26,6 +30,16 @@ public class LoadingTimeInterceptor implements HandlerInterceptor {
         Random random = new Random();
         int delay = random.nextInt(500);
         Thread.sleep(delay);
+//        Map<String, String> json = new HashMap<>();
+//        json.put("error", "no tienes acceso");
+//        json.put("date", new Date().toString());
+//        ObjectMapper mapper = new ObjectMapper();
+//        String jsonString = mapper.writeValueAsString(json);
+//        response.setContentType("application/json");
+//        response.setCharacterEncoding("UTF-8");
+//        response.setStatus(401);
+//        response.getWriter().write(jsonString);
+//        return false;
         return true;
     }
 
